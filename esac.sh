@@ -15,6 +15,6 @@ case $ACTION in
                echo "restarting service"
              ;;
         *)
-             echo "valid options are start or stop or restart
+             echo "valid options are start or stop or restart"
             
   esac             
