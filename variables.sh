@@ -7,3 +7,6 @@ c=40
 echo $a
 echo "$b"
 echo ${c}
+
+
+echo " i am printing the value of d"
