@@ -19,5 +19,7 @@ case $ACTION in
              ;;
         *)
              echo "valid options are start or stop or restart"
+             exit 4
+             ;;
             
   esac             
