@@ -10,7 +10,7 @@ case $ACTION in
         STOP)
               echo "stoping service"
               ;;
-         restart)
+        restart)
                echo "restarting service"
-               ;;
+             ;;
   esac             
