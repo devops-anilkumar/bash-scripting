@@ -1,3 +1,3 @@
 #!/bin/bash
 echo " welcome to my devops world"
-echo -e "i want to become a director \n and story writter"
+echo -e "i want to become a director \n and story writter \t my movie name is weapon"
