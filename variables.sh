@@ -9,4 +9,4 @@ echo "$b"
 echo ${c}
 
 
-echo " i am printing the value of d"
+echo " i am printing the value of d $d "
