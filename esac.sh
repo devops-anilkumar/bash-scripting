@@ -7,15 +7,15 @@ ACTION=$1
 case $ACTION in
         start)
              echo "starting service"
-             exit0
+             exit 0
              ;;
         stop )
               echo "stoping service"
-              exit2
+              exit 2
               ;;
         restart)
                echo "restarting service"
-               exit3
+               exit 3
              ;;
         *)
              echo "valid options are start or stop or restart"
