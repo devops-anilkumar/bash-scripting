@@ -5,5 +5,5 @@
  echo "todays date is : $(date +%F)"
  echo " load average on the system is $(uptime | awk -F : '(print $NF)' | awk -F , '(print $1)')"
  } 
- echo " calling stat function "
+ echo "calling stat function " 
  stat
