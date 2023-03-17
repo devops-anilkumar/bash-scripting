@@ -1,3 +1,3 @@
 # bash-scripting
-this is for automation of my projects
+this is for automation of my 
 roboshop project
