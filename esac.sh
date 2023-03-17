@@ -5,13 +5,16 @@ ACTION=$1
 
 
 case $ACTION in
-        START)
+        start)
              echo "starting service"
              ;;
-        STOP)
+        stop )
               echo "stoping service"
               ;;
         restart)
                echo "restarting service"
              ;;
+        *)
+             echo "valid options are start or stop or restart
+            
   esac             
