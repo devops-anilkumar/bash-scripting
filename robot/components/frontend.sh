@@ -1,9 +1,11 @@
 #!/bin/bash
 
 echo "i am frontend"
+
+#set -e
 COMPONENT=frontend
 LOGFILE="/tmp/$COMPONENT.log
-set -e
+
 
 #validating weather the excuting  user is a root user or not
 ID=$(id -u)
