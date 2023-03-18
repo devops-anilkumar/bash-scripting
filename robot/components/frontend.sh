@@ -11,14 +11,14 @@ LOGFILE="/tmp/$COMPONENT.log"
 #validating weather the excuting  user is a root user or not
 ID=$(id -u)
 if [ "$ID" -ne 0 ] ; then
-            echo -e "\e[31m you should excute this script as root user or with sudo as prefix \e[0m"
-            exit 1
+  echo -e "\e[31m you should excute this script as root user or with sudo as prefix \e[0m"
+  exit 1
 fi 
 echo -n " INSTALLING NGINX :"
 if [ $? -eq 0 ] then 
-      echo -e "\e[32m success\e[0m" 
+ echo -e "\e[32m success\e[0m" 
 else
-      echo -e "\e[31m failure\e[0m" 
+ echo -e "\e[31m failure\e[0m" 
 fi 
 
 yum install nginx -y     &>> $LOGFILE
