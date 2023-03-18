@@ -10,5 +10,5 @@ elif [ "$ACTION" == "stop" ]; then
       exit o   
 else
       echo -e "\e[33m service payment is starting \e[0m"
-      exit o   
+      exit 3
 fi
