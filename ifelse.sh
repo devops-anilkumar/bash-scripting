@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "demonstrating sinmple if condition"
+echo "demonstrating simple if condition"
 
 ACTION=$1  
 if [ "$ACTION" == "start" ]; then
