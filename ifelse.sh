@@ -7,7 +7,7 @@ if [ "$ACTION" == "start" ]; then
       exit o   
 elif [ "$ACTION" == "stop" ]; then
       echo -e "\e[31m service payment is starting \e[0m"
-      exit o   
+      exit 2
 else
       echo -e "\e[33m service payment is unknown \e[0m"
       exit 3
