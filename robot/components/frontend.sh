@@ -2,9 +2,10 @@
 
 echo "i am frontend"
 
-#set -e
+set -e
 COMPONENT=frontend
-LOGFILE="/tmp/$COMPONENT.log
+LOGFILE="/tmp/$COMPONENT.log"
+
 
 
 #validating weather the excuting  user is a root user or not
@@ -13,7 +14,7 @@ if [ "$ID" -ne 0 ] ; then
             echo -e "\e[31m you should excute this script as root user or with sudo as prefix \e[0m"
             exit 1
 fi 
-yum install nginx -y     &>>$LOGFILE
+yum install nginx -y     &>> $LOGFILE
 curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
 
 
