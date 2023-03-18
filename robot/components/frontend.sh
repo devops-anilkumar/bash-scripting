@@ -17,7 +17,7 @@ fi
 echo -n " INSTALLING NGINX :"
 if [ $? -eq 0 ] then 
       echo -e "\e[32m success\e[0m" 
-      else
+else
       echo -e "\e[31m failure\e[0m" 
 fi 
 
