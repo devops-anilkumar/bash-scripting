@@ -14,6 +14,13 @@ if [ "$ID" -ne 0 ] ; then
             echo -e "\e[31m you should excute this script as root user or with sudo as prefix \e[0m"
             exit 1
 fi 
+echo -n " INSTALLING NGINX :"
+if [ $? -eq 0 ] then 
+      echo -e "\e[32m success\e[0m" 
+      else
+      echo -e "\e[31m failure\e[0m" 
+fi 
+
 yum install nginx -y     &>> $LOGFILE
 curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
 
