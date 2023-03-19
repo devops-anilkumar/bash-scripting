@@ -27,7 +27,7 @@ fi
 }
 
 echo -n "CONFIGURING THE NODE-JS REPO :"
-curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash -
+curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash - &>> $LOGFILE
 stat $?
 
 echo -n "INSTALLING NODE-JS :"
