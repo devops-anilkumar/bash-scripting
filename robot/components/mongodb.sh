@@ -50,8 +50,9 @@ stat $?
 
 
 echo -n "DOWNLOADING THE $COMPONENT SCHEMA :"
-curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENET/archive/main.zip"
+curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
 stat $?
+
 
 echo -n "EXTACTING THE $COMPONENT SCHEMA:"
 cd /tmp
