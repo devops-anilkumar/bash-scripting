@@ -47,7 +47,7 @@ stat $?
 
 echo -n "EXTRACTING THE $COMPONENT IN THE $APPUSER DIRECTORY :"
 cd /home/$APPUSER
-unzip -O /tmp/$COMPONENT.zip &>> $LOGFILE
+unzip -o /tmp/$COMPONENT.zip   &>> $LOGFILE
 stat $?
 # $ mv catalogue-main catalogue
 # $ cd /home/roboshop/catalogue
