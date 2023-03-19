@@ -4,7 +4,7 @@
 echo "i am mongodb"
 
 
-#set -e
+set -e
 COMPONENT=mongodb
 LOGFILE="/tmp/$COMPONENT.log"
 
@@ -40,7 +40,7 @@ systemctl start mongod &>> $LOGFILE
 stat $?
 
 echo -n "UPLOADING THE $COMPONENT VISIBILITY: "
-sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
+sed -i -e 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
 stat $?
 
 echo -n "PERFORMING DAEMON-RELOAD :"
