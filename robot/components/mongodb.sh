@@ -47,3 +47,20 @@ echo -n "PERFORMING DAEMON-RELOAD :"
 systemctl daemon-reload &>> $LOGFILE
 systemctl restart mongod &>> $LOGFILE
 stat $?
+
+
+echo -n "DOWNLOADING THE $COMPONENT SCHEMA :"
+curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENET/archive/main.zip"
+stat $?
+
+echo -n "EXTACTING THE $COMPONENT SCHEMA:"
+cd /tmp
+unzip $COMPONENT.zip  &>> $LOGFILE
+stat $?
+
+
+echo -n "INJECTING THE SCHEMA :"
+cd $COMPONENT-main
+mongo < catalogue.js
+mongo < users.js
+stat $?
