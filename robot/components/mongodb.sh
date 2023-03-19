@@ -56,7 +56,7 @@ stat $?
 
 echo -n "EXTACTING THE $COMPONENT SCHEMA:"
 cd /tmp
-unzip -o $COMPONENT.zip  &>> $LOGFILE
+unzip  $COMPONENT.zip  &>> $LOGFILE
 stat $?
 
 
