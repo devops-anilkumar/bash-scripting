@@ -52,7 +52,7 @@ stat $?
 
 
 echo -n "EXTRACTING THE $COMPONENT SCHEMA :"
-cd /tmp
+
 rm -rf /tmp/$COMPONENT
 unzip -o $COMPONENT.zip &>> $LOGFILE
 stat $?
