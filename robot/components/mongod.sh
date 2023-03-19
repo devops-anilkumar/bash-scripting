@@ -8,7 +8,7 @@ LOGFILE="/tmp/$COMPONENT.log"
 # giving root previlages to the user
 
 ID=$(id -u)
-if ["ID" -ne 0] ; then
+if ["$ID" -ne 0] ; then
     echo -e "\e[31m you should excute this script as a root user or with sudo as a prefix \e[0m"
     exit 1
 fi
