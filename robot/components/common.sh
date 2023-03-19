@@ -63,7 +63,7 @@ stat $?
 
 CONFIG-SVC() {
 echo -n "UPDATING SYSTEM FILE WITH DB DETAILS :"
-sed -i -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal/' /home/$APPUSER/$COMPONENT/systemd.service
+sed -i -e 's/DBHOST/mysql.roboshop.internal/' -e's/CARTENDPOINT/cart.roboshop.internal/' -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal/' /home/$APPUSER/$COMPONENT/systemd.service
 mv /home/$APPUSER/$COMPONENT/systemd.service /etc/systemd/system/$COMPONENT.service
 stat $?
 
@@ -72,6 +72,36 @@ systemctl daemon-reload
 systemctl enable $COMPONENT   &>> $LOGFILE
 systemctl restart $COMPONENT   &>> $LOGFILE
 stat $?
+}
+
+MVN-PACKAGE() {
+    echo -n " CREATING THE $COMPONENT PACKAGE :"
+    cd /home/$APPUSER/$COMPONENT/
+    mvn clean package &>> $LOGFILE
+    mv target/shipping-1.0.jar shipping.jar
+    stat $?
+}
+
+
+
+
+JAVA() {
+echo -n "INSTALLING MAVEN  :" 
+yum install maven -y  &>> $LOGFILE
+stat $?
+
+#calling create-user function
+CREATE-USER
+
+#calling download-and-extract function
+DOWNLOAD-AND-EXTRACT
+
+#calling maven-package function
+MVN-PACKAGE
+
+#calling config-svc
+CONFIG-SVC
+
 }
 
 
@@ -83,11 +113,11 @@ stat $?
 echo -n "INSTALLING NODE-JS :"
 yum install nodejs -y &>> $LOGFILE
 stat $?
-
+ 
 #calling create-user function
 CREATE-USER
 
-#callind download-and-extract function
+#calling download-and-extract function
 DOWNLOAD-AND-EXTRACT
 
 #calling npm-install
@@ -95,6 +125,7 @@ NPM-INSTALL
 
 #calling config-svc
 CONFIG-SVC
+
 }
 
 
