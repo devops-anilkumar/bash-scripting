@@ -1,4 +1,4 @@
-#!/bin/bash
+
 
 LOGFILE="/tmp/$COMPONENT.log"
 APPUSER=roboshop
@@ -24,7 +24,7 @@ else
 fi 
 }
 
-CREATE-USER() { 
+CREATE_USER() { 
     id $APPUSER &>> $LOGFILE
 if [ $? -ne 0 ] ; then
         echo -n "CREATING THE APPLICATION USER ACCOUNT:" 
@@ -35,7 +35,7 @@ fi
 
 
 
-DOWNLOAD-AND-EXTRACT() {
+DOWNLOAD_AND_EXTRACT() {
 
 echo -n "DOWNLOADING THE $COMPONENT :"
 curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
@@ -53,7 +53,7 @@ chown -R $APPUSER:$APPUSER /home/$APPUSER/$COMPONENT
 stat $?
 }
 
-NPM-INSTALL() {
+NPM_INSTALL() {
 
 echo -n "INSTALLING THE $COMPONENT APPLICATION :"
 cd /home/$APPUSER/$COMPONENT/
@@ -61,7 +61,7 @@ npm install   &>> $LOGFILE
 stat $?
 }
 
-CONFIG-SVC() {
+CONFIG_SVC() {
 echo -n "UPDATING SYSTEM FILE WITH DB DETAILS :"
 sed -i -e 's/DBHOST/mysql.roboshop.internal/' -e's/CARTENDPOINT/cart.roboshop.internal/' -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal/' /home/$APPUSER/$COMPONENT/systemd.service
 mv /home/$APPUSER/$COMPONENT/systemd.service /etc/systemd/system/$COMPONENT.service
@@ -74,7 +74,7 @@ systemctl restart $COMPONENT   &>> $LOGFILE
 stat $?
 }
 
-MVN-PACKAGE() {
+MVN_PACKAGE() {
     echo -n " CREATING THE $COMPONENT PACKAGE :"
     cd /home/$APPUSER/$COMPONENT/
     mvn clean package &>> $LOGFILE
@@ -91,16 +91,16 @@ yum install maven -y  &>> $LOGFILE
 stat $?
 
 #calling create-user function
-CREATE-USER
+CREATE_USER
 
 #calling download-and-extract function
-DOWNLOAD-AND-EXTRACT
+DOWNLOAD_AND_EXTRACT
 
 #calling maven-package function
-MVN-PACKAGE
+MVN_PACKAGE
 
 #calling config-svc
-CONFIG-SVC
+CONFIG_SVC
 
 }
 
@@ -115,16 +115,16 @@ yum install nodejs -y &>> $LOGFILE
 stat $?
  
 #calling create-user function
-CREATE-USER
+CREATE_USER
 
 #calling download-and-extract function
-DOWNLOAD-AND-EXTRACT
+DOWNLOAD_AND_EXTRACT
 
 #calling npm-install
-NPM-INSTALL
+NPM_INSTALL
 
 #calling config-svc
-CONFIG-SVC
+CONFIG_SVC
 
 }
 
