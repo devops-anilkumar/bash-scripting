@@ -45,6 +45,7 @@ stat $?
 echo -n "EXTRACTING THE $COMPONENT IN THE $APPUSER DIRECTORY :"
 cd /home/roboshop
 unzip -O /tmp/catalogue.zip &>> $LOGFILE
+stat $?
 # $ mv catalogue-main catalogue
 # $ cd /home/roboshop/catalogue
 # $ npm install
