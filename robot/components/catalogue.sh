@@ -46,8 +46,8 @@ curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalog
 stat $?
 
 echo -n "EXTRACTING THE $COMPONENT IN THE $APPUSER DIRECTORY :"
-cd /home/roboshop
-unzip -O /tmp/catalogue.zip &>> $LOGFILE
+cd /home/$APPUSER
+unzip -O /tmp/$COMPONENT.zip &>> $LOGFILE
 stat $?
 # $ mv catalogue-main catalogue
 # $ cd /home/roboshop/catalogue
