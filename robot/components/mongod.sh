@@ -29,12 +29,12 @@ curl -s -o /etc/yum.repos.d/$COMPONENT.repo https://raw.githubusercontent.com/st
 stat $?
 
 echo -n " INSTALLING $COMPONENT :"
-yum install -y mongodb-org
+yum install -y mongodb-org &>> $LOGFILE
 stat $?
 
 echo -n "STARTING $COMPONENT:"
-systemctl enable mongod
-systemctl start mongod
+systemctl enable mongod &>> $LOGFILE
+systemctl start mongod  &>> $LOGFILE
 stat $?
 
 echo -n "UPDATING $COMPONENT VISIBILITY
