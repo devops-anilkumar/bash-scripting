@@ -20,8 +20,9 @@ echo -n "STARTING THE $COMPONENT :"
 systemctl enable rabbitmq-server   &>> $LOGFILE
 systemctl start rabbitmq-server     &>> $LOGFILE
 stat $?
-
+rabbitmqctl list_users | grep $APPUSER   &>>  $LOGFILE
+if [ $? -ne 0 ] ; then
 echo -n "CREATING $COMPONENT APPLICATION USER :"
 rabbitmqctl add_user roboshop roboshop123  &>> $LOGFILE
 stat $? 
-
+fi
