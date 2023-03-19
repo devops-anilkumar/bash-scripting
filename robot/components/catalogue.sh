@@ -56,8 +56,22 @@ mv /home/$APPUSER/$COMPONENT-main /home/$APPUSER/$COMPONENT
 chown -R $APPUSER:$APPUSER /home/$APPUSER/$COMPONENT
 stat $?
 
+echo -n "INSTALLING THE $COMPONENT APPLICATION :"
+cd /home/$APPUSER/$COMPONENT/
+npm install   &>> $LOGFILE
+stat $?
+
+echo -n "UPDATING SYSTEM FILE WITH DB DETAILS :"
+sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/$APPUSER/$COMPONENT/systemd.service
+mv /home/$APPUSER/$COMPONENT/systemd.service /etc/systemd/system/$COMPONENT.service
+stat $?
+
+echo -n "STARTING THE $COMPONENT SERVICE :"
+systemctl daemon-reload
+systemctl enable $COMPONENT   &>> $LOGFILE
+systemctl start $COMPONENT   &>> $LOGFILE
+stat $?
 
 
-# $ mv catalogue-main catalogue
-# $ cd /home/roboshop/catalogue
-# $ npm install
+
+
