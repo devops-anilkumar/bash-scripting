@@ -4,7 +4,7 @@
 echo "i am mongodb"
 
 
-set -e
+#set -e
 COMPONENT=mongodb
 LOGFILE="/tmp/$COMPONENT.log"
 
