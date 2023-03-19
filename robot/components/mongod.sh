@@ -53,11 +53,11 @@ stat $?
 
 echo -n "EXTRACTING THE $COMPONENT SCHEMA :"
 cd /tmp
-unzip $COMPONENT.zip &>> $LOGFILE
+unzip -o $COMPONENT.zip &>> $LOGFILE
 stat $?
 
 echo -n "INJECTING THE $COMPONENT SCHEMA :"
-cd $COMPONENT-main
+cd /tmp/$COMPONENT-main
 mongo < catalogue.js &>> $LOGFILE
 mongo < users.js &>> $LOGFILE
 stat $?
