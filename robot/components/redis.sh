@@ -25,7 +25,7 @@ fi
 }
 
 echo -n "CONFIGURING $COMPONENT REPO:"
-curl -L https://raw.githubusercontent.com/stans-robot-project/$COMPONENT/main/$COMPONENT.repo -o /etc/yum.repos.d/$COMPONENT.repo
+curl -L https://raw.githubusercontent.com/stans-robot-project/$COMPONENT/main/$COMPONENT.repo -o /etc/yum.repos.d/$COMPONENT.repo  &>> $LOGFILE
 stat $?
 
 echo -n "INSTALLING $COMPONENT SERVER :"
