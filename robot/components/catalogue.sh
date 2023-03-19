@@ -53,6 +53,10 @@ stat $?
 echo -n "CONFIGURINNG THE PERMISSIONS :"
 mv /home/$APPUSER/$COMPONENT-main /home/$APPUSER/$COMPONENT
 chown -R $APPUSER:$APPUSER /home/$APPUSER/$COMPONENT
+stat $?
+
+
+
 # $ mv catalogue-main catalogue
 # $ cd /home/roboshop/catalogue
 # $ npm install
