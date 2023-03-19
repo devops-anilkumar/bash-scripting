@@ -2,7 +2,7 @@
 
 echo " i am catalogue"   
 
-
+#set -e
 
 COMPONENT=catalogue
 

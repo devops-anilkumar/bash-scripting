@@ -1,4 +1,4 @@
-
+#!/bin/bash
 
 LOGFILE="/tmp/$COMPONENT.log"
 APPUSER=roboshop
