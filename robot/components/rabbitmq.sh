@@ -1,5 +1,9 @@
 #!/bin/bash
 
+
+echo "i am rabbitmq"
+
+
 COMPONENT=rabbitmq
 source components/common.sh
 
