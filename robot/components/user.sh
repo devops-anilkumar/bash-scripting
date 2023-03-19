@@ -4,7 +4,7 @@ echo "i am user"
 
 
 
-set -e
+#set -e
 COMPONENT=user
 LOGFILE="/tmp/$COMPONENT.log"
 APPUSER=roboshop
