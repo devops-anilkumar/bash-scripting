@@ -3,7 +3,7 @@
 echo "i am redis"
 
 
-set -e
+
 COMPONENT=redis
 LOGFILE="/tmp/$COMPONENT.log"
 
