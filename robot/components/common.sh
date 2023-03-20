@@ -63,11 +63,7 @@ stat $?
 
 CONFIG_SVC() {
 echo -n "UPDATING SYSTEM FILE WITH DB DETAILS :"
-sed -i -e 's/DBHOST/mysql.roboshop.internal/' /home/$APPUSER/$COMPONENT/systemd.service
-sed -i -e's/CARTENDPOINT/172.31.63.152/' /home/$APPUSER/$COMPONENT/systemd.service
-sed -i -e 's/CATALOGUE_ENDPOINT/172.31.11.24/' /home/$APPUSER/$COMPONENT/systemd.service
-sed -i -e 's/REDIS_ENDPOINT/172.31.59.246/' /home/$APPUSER/$COMPONENT/systemd.service
-sed -i -e 's/MONGO_ENDPOINT/172.31.8.106/' /home/$APPUSER/$COMPONENT/systemd.service
+sed -i -e 's/DBHOST/mysql.roboshop.internal/' -e's/CARTENDPOINT/172.31.63.152/' -e 's/CATALOGUE_ENDPOINT/172.31.11.24/' -e 's/REDIS_ENDPOINT/172.31.59.246/' -e 's/MONGO_ENDPOINT/172.31.8.106/' /home/$APPUSER/$COMPONENT/systemd.service
 mv /home/$APPUSER/$COMPONENT/systemd.service /etc/systemd/system/$COMPONENT.service
 stat $?
 
